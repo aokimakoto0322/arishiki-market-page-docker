@@ -18,3 +18,5 @@ services:
 
     # Next.js 開発サーバー起動
     command: npm run dev
+    environment:
+      - WATCHPACK_POLLING=true
