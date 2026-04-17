@@ -1,0 +1,22 @@
+services:
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - type: bind
+        source: ./ArishikiWebPage/arishiki-market-web-app
+        target: /usr/src/app
+
+    # 標準入力を開く
+    stdin_open: true
+
+    # 仮想端末を有効にする
+    tty: true
+
+    # Next.js 開発サーバー起動
+    command: npm run dev
+    environment:
+      - WATCHPACK_POLLING=true
